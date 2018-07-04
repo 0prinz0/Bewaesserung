@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+	<bean id="dataSourceBean1" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+		<property name="jdbcUrl" value="jdbc:mysql://dbhost:3306/rest?autoReconnect=true&amp;useSSL=false"/>
+		<property name="user" value="logi"/>
+		<property name="password" value="slogi3010edi2008SON"/>
+		<property name="maxIdleTime" value="30"/>
+		<property name="maxPoolSize" value="100"/>
+		<property name="maxConnectionAge" value="30"/>
+	</bean>
+
+	<tx:annotation-driven  proxy-target-class="true"/>
+</beans>
