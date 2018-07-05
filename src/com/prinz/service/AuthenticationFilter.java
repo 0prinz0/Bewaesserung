@@ -31,11 +31,11 @@ public class AuthenticationFilter implements javax.ws.rs.container.ContainerRequ
 
 	private static final String AUTHORIZATION_PROPERTY = "Authorization";
 	private static final String AUTHENTICATION_SCHEME = "Basic";
-	private static final Response ACCESS_DENIED = Response.status(Response.Status.UNAUTHORIZED).entity("You cannot access this resource").build();
-	private static final Response ACCESS_FORBIDDEN = Response.status(Response.Status.FORBIDDEN).entity("Access blocked for all users !!").build();
 
 	@Override
 	public void filter(ContainerRequestContext requestContext) {
+		Response ACCESS_DENIED = Response.status(Response.Status.UNAUTHORIZED).entity("You cannot access this resource").build();
+		Response ACCESS_FORBIDDEN = Response.status(Response.Status.FORBIDDEN).entity("Access blocked for all users !!").build();
 		Method method = resourceInfo.getResourceMethod();
 		//Access allowed for all
 		if (!method.isAnnotationPresent(PermitAll.class)) {
