@@ -62,7 +62,6 @@ public class AuthenticationFilter implements javax.ws.rs.container.ContainerRequ
 
 			//Decode username and password
 			String usernameAndPassword = new String(Base64.decode(encodedUserPassword.getBytes()));
-			;
 
 			//Split username and password tokens
 			final StringTokenizer tokenizer = new StringTokenizer(usernameAndPassword, ":");

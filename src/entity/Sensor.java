@@ -20,6 +20,16 @@ public class Sensor {
 	@Basic
 	private Date lastUpdated;
 
+	public Sensor() {
+	}
+	
+	public Sensor(int id, String description, double lastValue) {
+		this.id = id;
+		this.description = description;
+		this.lastValue = lastValue;
+		this.lastUpdated = new Date();
+	}
+	
 	public int getId() {
 		return id;
 	}
